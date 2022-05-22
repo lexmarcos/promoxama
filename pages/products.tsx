@@ -30,17 +30,26 @@ const Products: NextPage = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-4 gap-4  md:grid-cols-5">
+    <div className="py-14 grid grid-cols-4 gap-4 xl:px-20 2xl:px-52 bg-gray-100">
       {products.map((product) => (
-        <div className="card w-80 bg-base-100 shadow-xl">
+        <div className="card bg-base-100 shadow-xl">
           <figure>
             <img
-              src="https://a-static.mlcdn.com.br/1500x1500/iphone-11-apple-64gb-branco-61-12mp-ios/magazineluiza/155614100/af1cd7d9c89d7306b52490a0ce1b8b34.jpg"
+              className="px-5 pb-2 pt-5 xl:w-80 md:w-auto"
+              src="https://a-static.mlcdn.com.br/1200x1200/iphone-11-apple-64gb-branco-61-12mp-ios/magazineluiza/155614100/af1cd7d9c89d7306b52490a0ce1b8b34.jpg"
               alt="Shoes"
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">{product.name}</h2>
+            <h3 className="">{product.name}</h3>
+            <h6 className="text-sm line-through text-gray-400">
+              R$ {product.price_without_discount}
+            </h6>
+            <h6 className="text-2xl font-bold -mt-3">R$ {product.price}</h6>
+            <div className="text-sm text-gray-400 -mt-1">à vista</div>
+            <div className="text-gray-600 -mt-3">
+              ou {product.installments} de R$ {product.installment_price}
+            </div>
           </div>
         </div>
       ))}
